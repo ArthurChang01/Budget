@@ -1,4 +1,4 @@
-﻿namespace BudgetCalculator
+﻿namespace BudgetCalculator.Entities
 {
     public class BudgetSearcher
     {

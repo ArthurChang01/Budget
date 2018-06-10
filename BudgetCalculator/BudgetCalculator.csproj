@@ -59,11 +59,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Budget.cs" />
-    <Compile Include="BudgeProcessor.cs" />
-    <Compile Include="BudgetSearcher.cs" />
-    <Compile Include="BudgetRetriver.cs" />
-    <Compile Include="IBudgetRepository.cs" />
+    <Compile Include="Entities\Budget.cs" />
+    <Compile Include="BOs\BudgeProcessor.cs" />
+    <Compile Include="Entities\BudgetSearcher.cs" />
+    <Compile Include="BOs\BudgetRetriver.cs" />
+    <Compile Include="BOs\IBudgetRepository.cs" />
+    <Compile Include="Entities\Period.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

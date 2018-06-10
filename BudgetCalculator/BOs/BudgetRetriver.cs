@@ -1,6 +1,6 @@
-﻿using System;
+﻿using BudgetCalculator.Entities;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace BudgetCalculator
 {
@@ -16,18 +16,19 @@ namespace BudgetCalculator
 
         public int CalculateBudget(DateTime startDate, DateTime endDate)
         {
-            if (endDate < startDate)
-                throw new ArgumentException();
+            Period period = new Period(startDate, endDate);
+            period.IsInvalid();
 
             IEnumerable<Budget> ieBg = this._respository.GetBudgets(new[] {
                 new BudgetSearcher(startDate.Year, startDate.Month),
                 new BudgetSearcher(endDate.Year, endDate.Month)
             });
-            this._processor = new BudgeProcessor(startDate, endDate, ieBg);
 
-            return _processor.IsTheSameYear()
-               ? _processor.IsTheSameMonth() ? _processor.CalculateTheSameMonth() : _processor.CalculateDifferentMonth()
-               : _processor.CalculateDifferentMonth();
+            BudgeProcessor processor = new BudgeProcessor(period, ieBg);
+
+            return period.IsTheSameMonth()
+                ? processor.CalculateTheSameMonth()
+                : processor.CalculateDifferentMonth();
         }
     }
 }

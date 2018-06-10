@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BudgetCalculator
+namespace BudgetCalculator.Entities
 {
     public class Budget
     {

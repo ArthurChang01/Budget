@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using BudgetCalculator.Entities;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,6 @@ namespace BudgetCalculator
         private BudgetRetriver _bugetService;
         private IBudgetRepository _rpt = Substitute.For<IBudgetRepository>();
         private int _actual = 0;
-
-        //private void GivenGetBudget(Budget bg)
-        //{
-        //    _rpt.GetBudget(Arg.Any<int>(), Arg.Any<int>()).Returns(bg);
-        //}
 
         private void GivenGetBudgets(IEnumerable<Budget> parms)
         {
